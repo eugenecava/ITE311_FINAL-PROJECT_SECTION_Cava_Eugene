@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixitNow - Appointment Scheduling</title>
+</head>
+<body>
+    <h1>FixitNow</h1>
+    <h2>Schedule a Repair Appointment</h2>
+
+    <form id="appointmentForm">
+        <label for="customer">Customer Name:</label>
+        <input type="text" id="customer" required>
+        <br><br>
+
+        <label for="appliance">Appliance:</label>
+        <input type="text" id="appliance" required>
+        <br><br>
+
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" required>
+        <br><br>
+
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" required>
+        <br><br>
+
+        <button type="submit">Schedule Appointment</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("appointmentForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const customer = document.getElementById("customer").value;
+                const appliance = document.getElementById("appliance").value;
+                const date = document.getElementById("date").value;
+                const time = document.getElementById("time").value;
+
+                document.getElementById("message").textContent =
+                    "Appointment request for " + customer +
+                    " - " + appliance + " on " + date + " at " + time;
+            });
+    </script>
+</body>
+</html>
