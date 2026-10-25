@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixitNow - Service Request</title>
+</head>
+<p>FixitNow allows customers to report appliance problems for repair and maintenance.</p>
+<body>
+    <h1>FixitNow</h1>
+    <h2>Report an Appliance Problem</h2>
+
+    <form id="serviceForm">
+        <label for="customer">Customer Name:</label>
+        <input type="text" id="customer" required>
+        <br><br>
+
+        <label for="appliance">Appliance:</label>
+        <select id="appliance" required>
+            <option value="">Select Appliance</option>
+            <option>Refrigerator</option>
+            <option>Washing Machine</option>
+            <option>Air Conditioner</option>
+            <option>Television</option>
+            <option>Other</option>
+        </select>
+        <br><br>
+
+        <label for="problem">Problem Description:</label>
+        <textarea id="problem" required></textarea>
+        <br><br>
+
+        <button type="submit">Submit Service Request</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("serviceForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const customer = document.getElementById("customer").value.trim();
+            const appliance = document.getElementById("appliance").value;
+            const problem = document.getElementById("problem").value.trim();
+
+            document.getElementById("message").textContent =
+                "Service request prepared for " + customer +
+                ": " + appliance + " - " + problem;
+        });
+    </script>
+</body>
+</html>
